@@ -38,7 +38,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Customer.findByFax", query = "SELECT c FROM Customer c WHERE c.fax = :fax"),
     @NamedQuery(name = "Customer.findByEmail", query = "SELECT c FROM Customer c WHERE c.email = :email"),
     @NamedQuery(name = "Customer.findByCreditLimit", query = "SELECT c FROM Customer c WHERE c.creditLimit = :creditLimit")})
-public class Customer implements Serializable {
+public class OLD_Customer implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -76,15 +76,15 @@ public class Customer implements Serializable {
     private Integer creditLimit;
     @JoinColumn(name = "ZIP", referencedColumnName = "ZIP_CODE")
     @ManyToOne(optional = false)
-    private MicroMarket zip;
+    private OLD_MicroMarket zip;
     @JoinColumn(name = "DISCOUNT_CODE", referencedColumnName = "DISCOUNT_CODE")
     @ManyToOne(optional = false)
-    private DiscountCode discountCode;
+    private OLD_DiscountCode discountCode;
 
-    public Customer() {
+    public OLD_Customer() {
     }
 
-    public Customer(Integer customerId) {
+    public OLD_Customer(Integer customerId) {
         this.customerId = customerId;
     }
 
@@ -168,19 +168,19 @@ public class Customer implements Serializable {
         this.creditLimit = creditLimit;
     }
 
-    public MicroMarket getZip() {
+    public OLD_MicroMarket getZip() {
         return zip;
     }
 
-    public void setZip(MicroMarket zip) {
+    public void setZip(OLD_MicroMarket zip) {
         this.zip = zip;
     }
 
-    public DiscountCode getDiscountCode() {
+    public OLD_DiscountCode getDiscountCode() {
         return discountCode;
     }
 
-    public void setDiscountCode(DiscountCode discountCode) {
+    public void setDiscountCode(OLD_DiscountCode discountCode) {
         this.discountCode = discountCode;
     }
 
@@ -194,10 +194,10 @@ public class Customer implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Customer)) {
+        if (!(object instanceof OLD_Customer)) {
             return false;
         }
-        Customer other = (Customer) object;
+        OLD_Customer other = (OLD_Customer) object;
         if ((this.customerId == null && other.customerId != null) || (this.customerId != null && !this.customerId.equals(other.customerId))) {
             return false;
         }

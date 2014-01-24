@@ -46,6 +46,11 @@
   <persistence-unit name="CustomerDBPU" transaction-type="JTA">
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <jta-data-source>TomcatDB</jta-data-source>
+    <class>entities.Teacher</class>
+    <class>entities.Dics</class>
+    <class>entities.Flow</class>
+    <class>entities.Dept</class>
+    <class>entities.Sem</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties/>
   </persistence-unit>

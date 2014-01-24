@@ -34,7 +34,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "MicroMarket.findByRadius", query = "SELECT m FROM MicroMarket m WHERE m.radius = :radius"),
     @NamedQuery(name = "MicroMarket.findByAreaLength", query = "SELECT m FROM MicroMarket m WHERE m.areaLength = :areaLength"),
     @NamedQuery(name = "MicroMarket.findByAreaWidth", query = "SELECT m FROM MicroMarket m WHERE m.areaWidth = :areaWidth")})
-public class MicroMarket implements Serializable {
+public class OLD_MicroMarket implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -50,12 +50,12 @@ public class MicroMarket implements Serializable {
     @Column(name = "AREA_WIDTH")
     private Double areaWidth;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "zip")
-    private Collection<Customer> customerCollection;
+    private Collection<OLD_Customer> customerCollection;
 
-    public MicroMarket() {
+    public OLD_MicroMarket() {
     }
 
-    public MicroMarket(String zipCode) {
+    public OLD_MicroMarket(String zipCode) {
         this.zipCode = zipCode;
     }
 
@@ -92,11 +92,11 @@ public class MicroMarket implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Customer> getCustomerCollection() {
+    public Collection<OLD_Customer> getCustomerCollection() {
         return customerCollection;
     }
 
-    public void setCustomerCollection(Collection<Customer> customerCollection) {
+    public void setCustomerCollection(Collection<OLD_Customer> customerCollection) {
         this.customerCollection = customerCollection;
     }
 
@@ -110,10 +110,10 @@ public class MicroMarket implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof MicroMarket)) {
+        if (!(object instanceof OLD_MicroMarket)) {
             return false;
         }
-        MicroMarket other = (MicroMarket) object;
+        OLD_MicroMarket other = (OLD_MicroMarket) object;
         if ((this.zipCode == null && other.zipCode != null) || (this.zipCode != null && !this.zipCode.equals(other.zipCode))) {
             return false;
         }

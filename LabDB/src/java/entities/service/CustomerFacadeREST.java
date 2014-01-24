@@ -5,7 +5,7 @@
  */
 package entities.service;
 
-import entities.Customer;
+import entities.OLD_Customer;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -25,25 +25,25 @@ import javax.ws.rs.Produces;
  */
 @Stateless
 @Path("entities.customer")
-public class CustomerFacadeREST extends AbstractFacade<Customer> {
+public class CustomerFacadeREST extends AbstractFacade<OLD_Customer> {
     @PersistenceContext(unitName = "CustomerDBPU")
     private EntityManager em;
 
     public CustomerFacadeREST() {
-        super(Customer.class);
+        super(OLD_Customer.class);
     }
 
     @POST
     @Override
     @Consumes({"application/xml", "application/json"})
-    public void create(Customer entity) {
+    public void create(OLD_Customer entity) {
         super.create(entity);
     }
 
     @PUT
     @Override
     @Consumes({"application/xml", "application/json"})
-    public void edit(Customer entity) {
+    public void edit(OLD_Customer entity) {
         super.edit(entity);
     }
 
@@ -56,21 +56,21 @@ public class CustomerFacadeREST extends AbstractFacade<Customer> {
     @GET
     @Path("{id}")
     @Produces({"application/xml", "application/json"})
-    public Customer find(@PathParam("id") Integer id) {
+    public OLD_Customer find(@PathParam("id") Integer id) {
         return super.find(id);
     }
 
     @GET
     @Override
     @Produces({"application/xml", "application/json"})
-    public List<Customer> findAll() {
+    public List<OLD_Customer> findAll() {
         return super.findAll();
     }
 
     @GET
     @Path("{from}/{to}")
     @Produces({"application/xml", "application/json"})
-    public List<Customer> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+    public List<OLD_Customer> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return super.findRange(new int[]{from, to});
     }
 

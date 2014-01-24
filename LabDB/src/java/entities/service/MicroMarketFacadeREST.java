@@ -5,7 +5,7 @@
  */
 package entities.service;
 
-import entities.MicroMarket;
+import entities.OLD_MicroMarket;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -25,25 +25,25 @@ import javax.ws.rs.Produces;
  */
 @Stateless
 @Path("entities.micromarket")
-public class MicroMarketFacadeREST extends AbstractFacade<MicroMarket> {
+public class MicroMarketFacadeREST extends AbstractFacade<OLD_MicroMarket> {
     @PersistenceContext(unitName = "CustomerDBPU")
     private EntityManager em;
 
     public MicroMarketFacadeREST() {
-        super(MicroMarket.class);
+        super(OLD_MicroMarket.class);
     }
 
     @POST
     @Override
     @Consumes({"application/xml", "application/json"})
-    public void create(MicroMarket entity) {
+    public void create(OLD_MicroMarket entity) {
         super.create(entity);
     }
 
     @PUT
     @Override
     @Consumes({"application/xml", "application/json"})
-    public void edit(MicroMarket entity) {
+    public void edit(OLD_MicroMarket entity) {
         super.edit(entity);
     }
 
@@ -56,21 +56,21 @@ public class MicroMarketFacadeREST extends AbstractFacade<MicroMarket> {
     @GET
     @Path("{id}")
     @Produces({"application/xml", "application/json"})
-    public MicroMarket find(@PathParam("id") String id) {
+    public OLD_MicroMarket find(@PathParam("id") String id) {
         return super.find(id);
     }
 
     @GET
     @Override
     @Produces({"application/xml", "application/json"})
-    public List<MicroMarket> findAll() {
+    public List<OLD_MicroMarket> findAll() {
         return super.findAll();
     }
 
     @GET
     @Path("{from}/{to}")
     @Produces({"application/xml", "application/json"})
-    public List<MicroMarket> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+    public List<OLD_MicroMarket> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return super.findRange(new int[]{from, to});
     }
 

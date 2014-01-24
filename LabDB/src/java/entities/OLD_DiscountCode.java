@@ -32,7 +32,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "DiscountCode.findAll", query = "SELECT d FROM DiscountCode d"),
     @NamedQuery(name = "DiscountCode.findByDiscountCode", query = "SELECT d FROM DiscountCode d WHERE d.discountCode = :discountCode"),
     @NamedQuery(name = "DiscountCode.findByRate", query = "SELECT d FROM DiscountCode d WHERE d.rate = :rate")})
-public class DiscountCode implements Serializable {
+public class OLD_DiscountCode implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -43,12 +43,12 @@ public class DiscountCode implements Serializable {
     @Column(name = "RATE")
     private BigDecimal rate;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "discountCode")
-    private Collection<Customer> customerCollection;
+    private Collection<OLD_Customer> customerCollection;
 
-    public DiscountCode() {
+    public OLD_DiscountCode() {
     }
 
-    public DiscountCode(Character discountCode) {
+    public OLD_DiscountCode(Character discountCode) {
         this.discountCode = discountCode;
     }
 
@@ -69,11 +69,11 @@ public class DiscountCode implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Customer> getCustomerCollection() {
+    public Collection<OLD_Customer> getCustomerCollection() {
         return customerCollection;
     }
 
-    public void setCustomerCollection(Collection<Customer> customerCollection) {
+    public void setCustomerCollection(Collection<OLD_Customer> customerCollection) {
         this.customerCollection = customerCollection;
     }
 
@@ -87,10 +87,10 @@ public class DiscountCode implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof DiscountCode)) {
+        if (!(object instanceof OLD_DiscountCode)) {
             return false;
         }
-        DiscountCode other = (DiscountCode) object;
+        OLD_DiscountCode other = (OLD_DiscountCode) object;
         if ((this.discountCode == null && other.discountCode != null) || (this.discountCode != null && !this.discountCode.equals(other.discountCode))) {
             return false;
         }

@@ -63,7 +63,7 @@ var app = {
                     // headers has to be set on the REST server side.
                     // Otherwise the JS client has to be copied into the
                     // some (f.e. the same) Web project on the same domain
-                    alert('Unable to fulfil the request');
+                    alert('Unable to fulfil the request 1');
                 }}
             
             if (method == 'create') {
@@ -82,8 +82,8 @@ var app = {
     
     // Collection class for Customer entities
     models.CustomerCollection = Backbone.Collection.extend({
-        model: models.Customer,
-        url: "webresources/entities.customer/",
+        model: models.Dept,
+        url: "webresources/entities.dept/",
         sync: function(method, model, options) {
             options || (options = {});
             var errorHandler = {
@@ -94,7 +94,7 @@ var app = {
                     // headers has to be set on the REST server side.
                     // Otherwise the JS client has to be copied into the
                     // some (f.e. the same) Web project on the same domain
-                    alert('Unable to fulfil the request');
+                    alert('Unable to fulfil the request 2');
                 }}
             
             var result = Backbone.sync(method, model, _.extend(options, errorHandler));

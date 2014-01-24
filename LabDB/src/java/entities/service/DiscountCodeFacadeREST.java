@@ -5,7 +5,7 @@
  */
 package entities.service;
 
-import entities.DiscountCode;
+import entities.OLD_DiscountCode;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -25,25 +25,25 @@ import javax.ws.rs.Produces;
  */
 @Stateless
 @Path("entities.discountcode")
-public class DiscountCodeFacadeREST extends AbstractFacade<DiscountCode> {
+public class DiscountCodeFacadeREST extends AbstractFacade<OLD_DiscountCode> {
     @PersistenceContext(unitName = "CustomerDBPU")
     private EntityManager em;
 
     public DiscountCodeFacadeREST() {
-        super(DiscountCode.class);
+        super(OLD_DiscountCode.class);
     }
 
     @POST
     @Override
     @Consumes({"application/xml", "application/json"})
-    public void create(DiscountCode entity) {
+    public void create(OLD_DiscountCode entity) {
         super.create(entity);
     }
 
     @PUT
     @Override
     @Consumes({"application/xml", "application/json"})
-    public void edit(DiscountCode entity) {
+    public void edit(OLD_DiscountCode entity) {
         super.edit(entity);
     }
 
@@ -56,21 +56,21 @@ public class DiscountCodeFacadeREST extends AbstractFacade<DiscountCode> {
     @GET
     @Path("{id}")
     @Produces({"application/xml", "application/json"})
-    public DiscountCode find(@PathParam("id") String id) {
+    public OLD_DiscountCode find(@PathParam("id") String id) {
         return super.find(id.charAt(0));
     }
 
     @GET
     @Override
     @Produces({"application/xml", "application/json"})
-    public List<DiscountCode> findAll() {
+    public List<OLD_DiscountCode> findAll() {
         return super.findAll();
     }
 
     @GET
     @Path("{from}/{to}")
     @Produces({"application/xml", "application/json"})
-    public List<DiscountCode> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+    public List<OLD_DiscountCode> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return super.findRange(new int[]{from, to});
     }
 
