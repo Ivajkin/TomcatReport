@@ -5,7 +5,7 @@
  */
 package entities.service;
 
-import entities.OLD_MicroMarket;
+import entities.OLD_Customer;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -24,53 +24,53 @@ import javax.ws.rs.Produces;
  * @author milan
  */
 @Stateless
-@Path("entities.micromarket")
-public class MicroMarketFacadeREST extends AbstractFacade<OLD_MicroMarket> {
+@Path("entities.customer")
+public class OLD_CustomerFacadeREST extends AbstractFacade<OLD_Customer> {
     @PersistenceContext(unitName = "CustomerDBPU")
     private EntityManager em;
 
-    public MicroMarketFacadeREST() {
-        super(OLD_MicroMarket.class);
+    public OLD_CustomerFacadeREST() {
+        super(OLD_Customer.class);
     }
 
     @POST
     @Override
     @Consumes({"application/xml", "application/json"})
-    public void create(OLD_MicroMarket entity) {
+    public void create(OLD_Customer entity) {
         super.create(entity);
     }
 
     @PUT
     @Override
     @Consumes({"application/xml", "application/json"})
-    public void edit(OLD_MicroMarket entity) {
+    public void edit(OLD_Customer entity) {
         super.edit(entity);
     }
 
     @DELETE
     @Path("{id}")
-    public void remove(@PathParam("id") String id) {
+    public void remove(@PathParam("id") Integer id) {
         super.remove(super.find(id));
     }
 
     @GET
     @Path("{id}")
     @Produces({"application/xml", "application/json"})
-    public OLD_MicroMarket find(@PathParam("id") String id) {
+    public OLD_Customer find(@PathParam("id") Integer id) {
         return super.find(id);
     }
 
     @GET
     @Override
     @Produces({"application/xml", "application/json"})
-    public List<OLD_MicroMarket> findAll() {
+    public List<OLD_Customer> findAll() {
         return super.findAll();
     }
 
     @GET
     @Path("{from}/{to}")
     @Produces({"application/xml", "application/json"})
-    public List<OLD_MicroMarket> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+    public List<OLD_Customer> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return super.findRange(new int[]{from, to});
     }
 

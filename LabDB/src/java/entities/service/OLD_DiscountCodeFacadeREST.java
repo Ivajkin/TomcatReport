@@ -25,11 +25,11 @@ import javax.ws.rs.Produces;
  */
 @Stateless
 @Path("entities.discountcode")
-public class DiscountCodeFacadeREST extends AbstractFacade<OLD_DiscountCode> {
+public class OLD_DiscountCodeFacadeREST extends AbstractFacade<OLD_DiscountCode> {
     @PersistenceContext(unitName = "CustomerDBPU")
     private EntityManager em;
 
-    public DiscountCodeFacadeREST() {
+    public OLD_DiscountCodeFacadeREST() {
         super(OLD_DiscountCode.class);
     }
 

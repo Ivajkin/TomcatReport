@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package entities.service;
 
-import entities.OLD_Customer;
+import entities.Teacher;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -21,29 +22,29 @@ import javax.ws.rs.Produces;
 
 /**
  *
- * @author milan
+ * @author Timofej
  */
 @Stateless
-@Path("entities.customer")
-public class CustomerFacadeREST extends AbstractFacade<OLD_Customer> {
+@Path("entities.teacher")
+public class TeacherFacadeREST extends AbstractFacade<Teacher> {
     @PersistenceContext(unitName = "CustomerDBPU")
     private EntityManager em;
 
-    public CustomerFacadeREST() {
-        super(OLD_Customer.class);
+    public TeacherFacadeREST() {
+        super(Teacher.class);
     }
 
     @POST
     @Override
     @Consumes({"application/xml", "application/json"})
-    public void create(OLD_Customer entity) {
+    public void create(Teacher entity) {
         super.create(entity);
     }
 
     @PUT
-    @Override
+    @Path("{id}")
     @Consumes({"application/xml", "application/json"})
-    public void edit(OLD_Customer entity) {
+    public void edit(@PathParam("id") Integer id, Teacher entity) {
         super.edit(entity);
     }
 
@@ -56,21 +57,21 @@ public class CustomerFacadeREST extends AbstractFacade<OLD_Customer> {
     @GET
     @Path("{id}")
     @Produces({"application/xml", "application/json"})
-    public OLD_Customer find(@PathParam("id") Integer id) {
+    public Teacher find(@PathParam("id") Integer id) {
         return super.find(id);
     }
 
     @GET
     @Override
     @Produces({"application/xml", "application/json"})
-    public List<OLD_Customer> findAll() {
+    public List<Teacher> findAll() {
         return super.findAll();
     }
 
     @GET
     @Path("{from}/{to}")
     @Produces({"application/xml", "application/json"})
-    public List<OLD_Customer> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
+    public List<Teacher> findRange(@PathParam("from") Integer from, @PathParam("to") Integer to) {
         return super.findRange(new int[]{from, to});
     }
 
