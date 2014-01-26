@@ -10,12 +10,12 @@ and open the template in the editor.
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel='stylesheet' href='http://mottie.github.com/tablesorter/css/theme.blue.css'>
         <link rel='stylesheet' href='http://mottie.github.com/tablesorter/addons/pager/jquery.tablesorter.pager.css'>
-        <script src='js/libs/underscore.js/underscore.js'></script>
-        <script src='js/libs/jquery/jquery.js'></script>
-        <script src='js/libs/backbone.js/backbone.js'></script>
+        <script src='js/libs/underscore.js/underscore-min.js'></script>
+        <script src='js/libs/jquery/jquery.min.js'></script>
+        <script src='js/libs/backbone.js/backbone-min.js'></script>
         <script src='http://mottie.github.com/tablesorter/js/jquery.tablesorter.min.js'></script>
         <script src='http://mottie.github.com/tablesorter/addons/pager/jquery.tablesorter.pager.js'></script>
-        <script src='CustomerClient.js'></script>
+        <script src='DicsClient.js'></script>
     </head>
     <body>
         <div id='create'></div>
@@ -53,59 +53,27 @@ and open the template in the editor.
         <script type='text/template' id='thead'>
             <thead>
             <tr>
-            <th>customerId</th>
-            <th>addressline2</th>
-            <th>phone</th>
-            <th>addressline1</th>
-            <th>fax</th>
-            <th>email</th>
+            <th>id</th>
             <th>name</th>
-            <th>state</th>
-            <th>creditLimit</th>
-            <th>city</th>
             </tr>
             </thead>
         </script>
-        <script type='text/template' id='tpl-customer-list-item'>
-            <td><a href='#<%= customerId %>'><%= customerId %></a></td>
-            <td><%= addressline2 %></td>
-            <td><%= phone %></td>
-            <td><%= addressline1 %></td>
-            <td><%= fax %></td>
-            <td><%= email %></td>
+        <script type='text/template' id='tpl-dics-list-item'>
+            <td><a href='#<%= id %>'><%= id %></a></td>
             <td><%= name %></td>
-            <td><%= state %></td>
-            <td><%= creditLimit %></td>
-            <td><%= city %></td>
         </script>
 
-        <script type='text/template' id='tpl-customer-details'>
+        <script type='text/template' id='tpl-dics-details'>
             <div>
             <table>
             <tbody>
             <tr><td>Id</td>
             <td>
-            <input type='text' id='customerId' name='id' value='<%= typeof(customerId)!== "undefined" ? customerId : "" %>'  />
+            <input type='text' id='id' name='id' value='<%= typeof(id)!== "undefined" ? id : "" %>'  />
             </td>
             </tr>
             <tr>
-            <td>addressline2</td><td><input type='text' id='addressline2' name='addressline2' value='<%= addressline2 %>'/></td></tr>
-            <tr>
-            <td>phone</td><td><input type='text' id='phone' name='phone' value='<%= phone %>'/></td></tr>
-            <tr>
-            <td>addressline1</td><td><input type='text' id='addressline1' name='addressline1' value='<%= addressline1 %>'/></td></tr>
-            <tr>
-            <td>fax</td><td><input type='text' id='fax' name='fax' value='<%= fax %>'/></td></tr>
-            <tr>
-            <td>email</td><td><input type='text' id='email' name='email' value='<%= email %>'/></td></tr>
-            <tr>
             <td>name</td><td><input type='text' id='name' name='name' value='<%= name %>'/></td></tr>
-            <tr>
-            <td>state</td><td><input type='text' id='state' name='state' value='<%= state %>'/></td></tr>
-            <tr>
-            <td>creditLimit</td><td><input type='text' id='creditLimit' name='creditLimit' value='<%= creditLimit %>'/></td></tr>
-            <tr>
-            <td>city</td><td><input type='text' id='city' name='city' value='<%= city %>'/></td></tr>
             </tbody>
             </table>
             <!--
