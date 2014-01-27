@@ -5,3 +5,6 @@
 *.war
 *.ear
 /LabDB/dist/
+
+!javax.ejb-3.1.2.2.jar
+!validation-api-1.1.0.Final.jar
